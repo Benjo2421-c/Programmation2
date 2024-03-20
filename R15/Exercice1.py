@@ -42,9 +42,27 @@ Goaler = Gardien("Ketterer", "Logan", "9 novembre 1993", "1", "Gardien", "128", 
 Defense= Défenseur("Brault-Guillard", "Zachary", "5 mars 1991", "15", "Défenseur", "32", "44")
 attaque = attaquant("Ibrahim", "Sunusi", "1 octobre 2002", "14", "Attaquant", "23", "44")
 
+liste_joueur = [Goaler, Defense, attaque]
+
 
 print(Goaler.date_naissance, Defense.date_naissance, attaque.date_naissance)
 print(Goaler.no_chandail, Defense.no_chandail, attaque.no_chandail)
 print(Goaler.position, Defense.position, attaque.position)
 
 class Équipe:
+    nbr_joueur_dans_ligue=0
+    def __init__(self, nom, liste_joueur) -> None:
+        self.nom = nom
+        self.liste_joueur= liste_joueur
+        Équipe.nbr_joueur_dans_ligue = len(liste_joueur)
+    
+    def engager_joueur(self):
+        self.liste_joueur.append(Joueur)
+        Équipe.nbr_joueur_dans_ligue +=1
+    
+    def éjecter_joueur(self):
+        self.liste_joueur.remove(Joueur)
+        Équipe.nbr_joueur_dans_ligue -=1
+
+
+equipe_CF_Montreal = Équipe("CF Montréal", Joueur)
