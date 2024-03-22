@@ -12,6 +12,8 @@ class Joueur(Personne):
         super().__init__(nom, prenom, date_naissance)
         self.no_chandail = no_chandail
         self.position = position
+    def __repr__(self) -> str:
+        return (f"{self.nom}, {self.prenom}")
 
 
 
@@ -54,7 +56,7 @@ class Équipe:
     def __init__(self, nom, liste_joueur) -> None:
         self.nom = nom
         self.liste_joueur= liste_joueur
-        Équipe.nbr_joueur_dans_ligue = len(liste_joueur)
+        Équipe.nbr_joueur_dans_ligue += len(liste_joueur)
     
     def engager_joueur(self):
         self.liste_joueur.append(Joueur)
@@ -65,4 +67,6 @@ class Équipe:
         Équipe.nbr_joueur_dans_ligue -=1
 
 
-equipe_CF_Montreal = Équipe("CF Montréal", Joueur)
+equipe_CF_Montreal = Équipe("CF Montréal", liste_joueur)
+
+print(equipe_CF_Montreal.liste_joueur)
